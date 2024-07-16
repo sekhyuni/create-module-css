@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
         const targetDir = path.dirname(targetFilePath);
         const cssFilePath = path.join(targetDir, "index.module.css");
 
-        // Extract classNames from the document
+        // Extract classNames from the document in the order they appear
         const classNames = extractClassNames(document);
 
         // Update CSS file
@@ -36,7 +36,9 @@ function extractClassNames(document: vscode.TextDocument): string[] {
   const classNameRegex = /styles\.([a-zA-Z0-9_-]+)/g;
   let match;
   while ((match = classNameRegex.exec(fileContent)) !== null) {
-    classNames.push(match[1]);
+    if (!classNames.includes(match[1])) {
+      classNames.push(match[1]);
+    }
   }
 
   return classNames;
@@ -68,7 +70,12 @@ function updateCSSFile(
 }
 
 function generateCSSContent(classNames: string[]): string {
-  return classNames.map((className) => `.${className} {}\n`).join("\n"); // Add newline between each class definition
+  return classNames
+    .map(
+      (className, index) =>
+        `.${className} {}\n${index < classNames.length - 1 ? "\n" : ""}`
+    )
+    .join("");
 }
 
 function updateExistingCSSFile(
@@ -83,9 +90,21 @@ function updateExistingCSSFile(
     }
 
     let cssContent = data.toString();
+    let existingClassNames: string[] = [];
+
+    // Extract existing classNames from CSS file
+    const existingClassNameRegex = /\.([a-zA-Z0-9_-]+)\s*\{/g;
+    let match;
+    while ((match = existingClassNameRegex.exec(cssContent)) !== null) {
+      existingClassNames.push(match[1]);
+    }
+
+    // Add new classNames in the order they appear in HTML
     classNames.forEach((className) => {
-      if (!cssContent.includes(`.${className}`)) {
-        cssContent += `\n.${className} {}\n`; // Add new class with newline if not exists
+      if (!existingClassNames.includes(className)) {
+        cssContent += `${
+          existingClassNames.length > 0 ? "\n" : ""
+        }.${className} {}\n\n`; // Add new class with newlines if not exists
       }
     });
 
