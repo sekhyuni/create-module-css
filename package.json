@@ -15,8 +15,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.createCssAndImport",
-        "title": "Create CSS and Import"
+        "command": "extension.createModuleCSS",
+        "title": "Create Module CSS"
       }
     ]
   },
