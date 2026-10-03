@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to the "create-module-css" extension will be documented in this file. Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.6] - 2026-10-03
+### Added
+- Extension icon.
+- Quick start and before/after example in the README.
+- Repository link and keywords in the marketplace listing.
+- Published to Open VSX for Cursor and VSCodium.
+
 ## [0.0.5] - 2024-07-16
 ### Added
 - Added a detailed README file explaining the usage, features, installation, and examples of the extension.

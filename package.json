@@ -2,13 +2,31 @@
   "name": "create-module-css",
   "publisher": "sekhyuni",
   "displayName": "Create Module CSS",
-  "description": "Create Module CSS",
-  "version": "0.0.5",
+  "description": "Generate index.module.css from the styles.xxx class names in your JSX/TSX and add the import automatically.",
+  "version": "0.0.6",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sekhyuni/create-module-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sekhyuni/create-module-css/issues"
+  },
+  "homepage": "https://github.com/sekhyuni/create-module-css#readme",
   "engines": {
     "vscode": "^1.91.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "css",
+    "css modules",
+    "module.css",
+    "react",
+    "jsx",
+    "tsx",
+    "classname"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
@@ -29,7 +47,9 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "publish:vscode": "npx @vscode/vsce publish",
+    "publish:openvsx": "npx ovsx publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.91.0",
