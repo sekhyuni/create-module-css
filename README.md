@@ -5,8 +5,7 @@ Write `styles.xxx` in your component, run one command, and `index.module.css` is
 ## Quick Start
 Open a component file → `Cmd+Shift+P` (Windows/Linux: `Ctrl+Shift+P`) → run **Create Module CSS**.
 
-<!-- Demo: record images/demo.gif, then uncomment the line below -->
-<!-- ![Demo](images/demo.gif) -->
+![Demo](images/demo.gif)
 
 **Before** (`Card.tsx`)
 ```tsx
