@@ -4,6 +4,7 @@
   "displayName": "Create Module CSS",
   "description": "Generate index.module.css from the styles.xxx class names in your JSX/TSX and add the import automatically.",
   "version": "0.0.6",
+  "license": "MIT",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
