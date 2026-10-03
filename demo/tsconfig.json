@@ -1,0 +1,10 @@
+{
+  // Editor-only config so the demo file shows no JSX/type errors while recording
+  "compilerOptions": {
+    "jsx": "preserve",
+    "noEmit": true,
+    "strict": false,
+    "noImplicitAny": false
+  },
+  "include": ["**/*"]
+}
