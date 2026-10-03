@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "create-module-css" extension will be documented in this file. Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.7] - 2026-10-03
+### Added
+- Demo GIF in the README.
+
 ## [0.0.6] - 2026-10-03
 ### Added
 - Extension icon.
